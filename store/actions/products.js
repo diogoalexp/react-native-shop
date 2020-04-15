@@ -107,7 +107,7 @@ export const updateProduct = (id, title, description, imageUrl) => {
         })
       }
     );
-      
+
     if (!response.ok) {
       throw new Error('Something went wrong!');
     }
