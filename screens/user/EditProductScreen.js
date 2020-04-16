@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useReducer } from 'react';
+import { useHeaderHeight } from 'react-navigation-stack';
 import {
   View,
   ScrollView,
@@ -8,7 +9,6 @@ import {
   KeyboardAvoidingView,
   ActivityIndicator
 } from 'react-native';
-import { useHeaderHeight } from 'react-navigation-stack';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -139,8 +139,8 @@ const EditProductScreen = props => {
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === 'android' ? useHeaderHeight() + 20 : 'padding'}
-      keyboardVerticalOffset={100}
+      behavior={Platform.OS === 'android' ? 'height' : 'padding'}
+      keyboardVerticalOffset={useHeaderHeight() + 20}
     >
       <ScrollView>
         <View style={styles.form}>
