@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useReducer, useCallback } from 'react';
-import { useHeaderHeight } from 'react-navigation-stack';
 import {
   ScrollView,
   View,
@@ -83,7 +82,7 @@ const AuthScreen = props => {
     setIsLoading(true);
     try {
       await dispatch(action);
-      props.navigation.navigate('Shop');
+      // props.navigation.navigate('Shop');
     } catch (err) {
       setError(err.message);
       setIsLoading(false);
@@ -105,7 +104,7 @@ const AuthScreen = props => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'android' ? 'height' : 'padding'}
-      keyboardVerticalOffset={useHeaderHeight() + 20}
+      keyboardVerticalOffset={50}
       style={styles.screen}
     >
       <LinearGradient colors={['#ffedff', '#ffe3ff']} style={styles.gradient}>
@@ -161,7 +160,7 @@ const AuthScreen = props => {
   );
 };
 
-AuthScreen.navigationOptions = {
+export const screenOptions = {
   headerTitle: 'Authenticate'
 };
 
